@@ -3138,6 +3138,7 @@ def connect(ip,
             rate=4,
             baud=115200,
             heartbeat_timeout=30,
+            target_system=0,
             source_system=255,
             source_component=0,
             use_native=False):
@@ -3201,7 +3202,7 @@ def connect(ip,
     if not vehicle_class:
         vehicle_class = Vehicle
 
-    handler = MAVConnection(ip, baud=baud, source_system=source_system, source_component=source_component, use_native=use_native)
+    handler = MAVConnection(ip, baud=baud, target_system=target_system, source_system=source_system, source_component=source_component, use_native=use_native)
     vehicle = vehicle_class(handler)
 
     if status_printer:
